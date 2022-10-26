@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "isolatedModules": false,
+    "esModuleInterop": true,
+    "declaration": true,
+    "strict": true,
+    "sourceMap": true
+  },
+  "typedocOptions": {
+    "entryPoints": ["src/lib/index.mts"],
+    "out": "temp-docs",
+    "plugin": ["typedoc-plugin-markdown"],
+    "theme": "markdown",
+    "entryDocument": "main.md"
+  },
+  "include": ["**/*.mts"],
+  "exclude": ["node_modules", "dist", "**/*.test.mts"]
+}

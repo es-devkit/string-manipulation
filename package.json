@@ -1,0 +1,68 @@
+{
+  "name": "@es-devkit/string-manipulation",
+  "version": "0.0.0",
+  "description": "Helper modules used for string manipulation",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "node ./scripts/esbuild.mjs && tsc --emitDeclarationOnly --outFile dist/index.d.mts",
+    "build:docs": "npx typedoc && concat-md --toc --dir-name-as-title temp-docs > README.md && rimraf temp-docs",
+    "test": "vitest"
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "release": {
+    "branches": [
+      "main",
+      {
+        "name": "beta",
+        "prerelease": true
+      }
+    ]
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
+  },
+  "private": false,
+  "exports": {
+    ".": {
+      "script": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./casing": {
+      "script": "./dist/casing.js",
+      "import": "./dist/casing.mjs",
+      "require": "./dist/casing.cjs"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/es-devkit/string-manipulation.git"
+  },
+  "keywords": [
+    "string",
+    "ECMAScript",
+    "string manipulation"
+  ],
+  "author": {
+    "name": "Stefan Karlsson",
+    "email": "iam@stefan-karlsson.se",
+    "url": "https://stefan-karlsson.se"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/es-devkit/string-manipulation/issues"
+  },
+  "homepage": "https://github.com/es-devkit/string-manipulation#readme",
+  "devDependencies": {
+    "concat-md": "^0.5.0",
+    "esbuild": "^0.15.12",
+    "rimraf": "^3.0.2",
+    "semantic-release": "^19.0.5",
+    "typedoc": "^0.23.18",
+    "typedoc-plugin-markdown": "^3.13.6",
+    "typescript": "^4.8.4",
+    "vitest": "^0.24.3"
+  }
+}
